@@ -35,3 +35,38 @@ To run this project, you need the following dependencies:
 You can install the required libraries using:
 ```bash
 pip install pandas numpy matplotlib scikit-learn
+```
+
+## Implementation
+Below is a basic implementation:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Data
+square_feet = np.array([1500, 1800, 2400, 3000, 3500]).reshape(-1, 1)
+prices = np.array([300000, 360000, 480000, 540000, 640000])
+
+# Model training
+model = LinearRegression()
+model.fit(square_feet, prices)
+
+# Predictions
+predicted_prices = model.predict(square_feet)
+
+# Visualization
+plt.scatter(square_feet, prices, color='red', marker='o', label='Actual Data')
+plt.plot(square_feet, predicted_prices, color='blue', label='Regression Line')
+plt.xlabel('Square Feet')
+plt.ylabel('Price (USD)')
+plt.title('Home Prices Prediction')
+plt.legend()
+plt.show()
+```
+
+## Conclusion
+This project demonstrates how to implement Single Linear Regression using Python to predict home prices based on square footage.
+
+## License
+This project is for learning purposes only and is free to use.
